@@ -1,7 +1,6 @@
 #file importing
-install.packages("RCurl")
 library(RCurl)
-x<-getURL("https://raw.githubusercontent.com/ihateworkTT/BB_stat/master/bb_stat.csv")
+x<-getURL("https://raw.githubusercontent.com/ihateworkTT/BB_stat/master/bb_stat_2019_0409.csv")
 bb_stat <- read.csv(text=x)
 names(bb_stat)[1] <- c("Year")
 head(bb_stat)
