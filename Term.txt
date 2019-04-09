@@ -1,0 +1,20 @@
+타석	PA	plate appearnace
+타수	AB	at bat 
+득점	R	Rund scored
+안타	H	Hit
+홈런	HR	Home Run
+총루타	TB	Total Bases
+타점	RBI	Runs batted in
+도루	SB	Stolen Bases
+도실	CS	Caught stealing
+볼넷	BB	Walks
+몸맞는공	HPB	Hit by pitch
+고의4구	IBB	Intentional walks
+삼진	K	Strikeouts
+병살	DP	Double play
+희생타	SH	Sacrifice Hits
+희비	SF	Sacrifice flies
+타율	AVG	Batting Average
+출루율	OBP	On-base percentage
+장타율	SLG	Slugging Percentage
+OPS	OPS	On base plus slugging
