@@ -1,6 +1,7 @@
 #file importing
 library(RCurl)
 x<-getURL("https://raw.githubusercontent.com/ihateworkTT/BB_stat/master/bb_ind_hitter_stat.csv")
+head(x)
 bb_stat <- read.csv(text=x)
 names(bb_stat)[1] <- c("Year")
 head(bb_stat)
