@@ -18,3 +18,5 @@
 출루율	OBP	On-base percentage
 장타율	SLG	Slugging Percentage
 OPS	OPS	On base plus slugging
+투구수	NP	Number of Pitches Thrown
+
