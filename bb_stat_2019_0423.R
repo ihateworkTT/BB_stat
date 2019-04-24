@@ -25,10 +25,12 @@ bb_stat_KMG
 #Let's see, the hitting performance accross the time
 library(ggplot2)
 plot_AVG <- ggplot(bb_stat_KMG, aes(x=PostYear, y=AVG, group=Team, colour=Team, label=Year))+geom_line()+geom_point(size=3)+scale_colour_manual(values=c("#FF9900", "#000000", "#FF3333"))+ggtitle("Average")+geom_text(nudge_y=0.003)
+plot_AVG
 
 #Let's see in detail
 #1. Fourtune? BABIP = (H-HR)/(AB-K-HR+SF)
-plot_BABIP <- ggplot(bb_stat_KMG, aes(x=PostYear, y=BABIP, group=Team, colour=Team, label=Year))+geom_line()+geom_point(size=3)+ggtitle("BABIP")+scale_colour_manual(values=c("#FF9900", "#000000", "#FF3333"))+geom_text(nudge_y=0.003)
+plot_AVG <- plot_AVG + coord_cartesian(ylim=c(0.24,0.34))
+plot_BABIP <- ggplot(bb_stat_KMG, aes(x=PostYear, y=BABIP, group=Team, colour=Team, label=Year))+geom_line()+geom_point(size=3)+ggtitle("BABIP")+scale_colour_manual(values=c("#FF9900", "#000000", "#FF3333"))+geom_text(nudge_y=0.003)+coord_cartesian(ylim=c(0.24,0.34))
 
 library(gridExtra)
 grid.arrange(plot_AVG, plot_BABIP, ncol=2)
@@ -49,7 +51,12 @@ grid.arrange(plot_slg, plot_HRperAB, ncol=2)
 #3-1. tooooooo much fast swing?
 bb_stat_KMG[1:2,]
 
-plot_NPperPA <- ggplot(bb_stat_KMG, aes(x=PostYear, y=NPperPA, group=Team, colour=Team, label=Year))+geom_line()+geom_point(size=3)+ggtitle("the Number of piting / Plate apperances")+geom_text(nudge_y=0.003)+scale_colour_manual(values=c("#FF9900", "#000000", "#FF3333"))
+plot_NPperPA <- ggplot(bb_stat_KMG, aes(x=PostYear, y=NPperPA, group=Team, colour=Team, label=Year))+geom_line()+geom_point(size=3)+ggtitle("the Number of pitching / Plate apperances")+geom_text(nudge_y=0.015)+scale_colour_manual(values=c("#FF9900", "#000000", "#FF3333"))+ylim(3.7,4)
+plot_NPperPA_2018 <- ggplot(bb_stat[bb_stat$Year==2018,], aes(x=Team, y=NPperPA, group=Team, fill=Team, Label=Team))+geom_bar(stat="identity")+coord_cartesian(ylim=c(3.7,4))+geom_hline(yintercept=mean(bb_stat[bb_stat$Year==2018,]$NPperPA))+ggtitle("the Number of pitching/Plate appearance on 2018")
+
+grid.arrange(plot_NPperPA, plot_NPperPA_2018, ncol=2)
+
+mean(bb_stat[bb_stat$Year==2018,]$NPperPA)
 
 #3-2. the fly distance of hittings is decreasing?
 plot_ivso <- ggplot(bb_stat_KMG, aes(x=PostYear, group=Team, colour=Team))+ylab("%")+scale_colour_manual(values=c("#FF9900", "#000000", "#FF3333")) +geom_point(aes(y=Infield), size=3)+geom_line(aes(y=Infield))+annotate("text", x=2, y=43, label="Infield") + geom_point(aes(y=Outfield), size=3)+geom_line(aes(y=Outfield))+annotate("text", x=2, y=57, label="Outfield") + ggtitle("Infield vs Outfield")
