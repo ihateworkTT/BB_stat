@@ -19,4 +19,10 @@
 장타율	SLG	Slugging Percentage
 OPS	OPS	On base plus slugging
 투구수	NP	Number of Pitches Thrown
-
+완투	CG	Completed Games
+완봉	SHO	Shutcouts
+투구이닝	IP	Innings Pitched
+선발	GS	Game started
+자책점	ER	Earned Runs
+보크	BK	Balks
+폭투	WP	Wild Pitches
